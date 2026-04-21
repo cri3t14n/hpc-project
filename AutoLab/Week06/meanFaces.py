@@ -16,9 +16,9 @@ def tonumpyarray(mp_arr):
 
 
 def reduce_step(args):
-    b, e, s, elemshape = args
+    i, elemshape = args
     arr = tonumpyarray(shared_arr).reshape((-1,) + elemshape)
-    arr[b:e:s] += arr[b+1:e:s] 
+    arr[i] += arr[i + 1]
 
 
 if __name__ == '__main__':
@@ -37,9 +37,11 @@ if __name__ == '__main__':
     t = time()
     pool = mp.Pool(n_processes, initializer=init, initargs=(shared_arr,))
 
-    pool.map(reduce_step,
-             [(i, i + 1, 1, elemshape) for i in range(0, len(arr)-1, chunk)],
-             chunksize=1)
+    pool.map(
+        reduce_step,
+        [(i, elemshape) for i in range(0, len(arr) - 1, 2)],
+        chunksize=1
+    )
 
     # Write output
     print(arr)

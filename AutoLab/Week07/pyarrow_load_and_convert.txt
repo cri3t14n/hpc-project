@@ -1,0 +1,5 @@
+import pyarrow.csv as csv
+
+def pyarrow_load(path):    
+    table = csv.read_csv(path)
+    return table.to_pandas()
