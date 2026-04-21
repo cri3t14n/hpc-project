@@ -1,0 +1,19 @@
+def generate_mandelbrot_set_chunks(points, num_processes):
+    from multiprocessing.pool import ThreadPool
+
+    def escape(c):
+        z = 0
+        for i in range(100):
+            z = z**2 + c
+            if np.abs(z) > 2.0:
+                return i
+        return 100
+
+    chunk_size = 1000
+    chunks = [points[i:i + chunk_size] for i in range(0, len(points), chunk_size)]
+
+    with ThreadPool(num_processes) as pool:
+        chunk_results = pool.map(lambda chunk: [escape(c) for c in chunk], chunks)
+
+    escape_times = np.array([v for chunk in chunk_results for v in chunk], dtype=int)
+    return escape_times

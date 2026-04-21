@@ -1,3 +1,7 @@
+##########################################################
+#####     UN-COMMENT LINES 84-86 WHEN UPLOADING      #####
+##########################################################
+
 import sys
 import numpy as np
 
@@ -34,7 +38,7 @@ def distance_matrix_one_loop(p1, p2):
     return D
 
 
-@profile
+# @profile
 def distance_matrix_no_loop(p1, p2):
     p1, p2 = np.radians(p1), np.radians(p2)
 
@@ -75,6 +79,12 @@ def distance_stats(D):
 
 fname = sys.argv[1]
 points = load_points(fname)
+
+##############################################################################
+# D = distance_matrix(points, points)
+# D = distance_matrix_two_loop(points, points)
 D = distance_matrix_no_loop(points, points)
+##############################################################################
+
 stats = distance_stats(D)
 print(stats)
