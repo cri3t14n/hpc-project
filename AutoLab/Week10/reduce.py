@@ -2,7 +2,7 @@ import sys
 import numpy as np
 from numba import cuda
 
-TPB = 128  # Threads per block
+TPB = 64  # Threads per block
 
 
 @cuda.jit
