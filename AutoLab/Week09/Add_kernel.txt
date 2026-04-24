@@ -1,0 +1,5 @@
+@cuda.jit
+def add_kernel(x, y, a):
+    i = cuda.grid(1)
+    if i < len(a):
+        a[i] = x[i] + y[i]
