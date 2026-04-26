@@ -1,28 +1,15 @@
-#!/bin/bash
-#BSUB -J simulate_time
-
-#BSUB -q hpc
-
-#BSUB -W 20
-# Time limit in minutes
-
-#BSUB -R "rusage[mem=2GB]"
-# Memory request
-
-#BSUB -n 1
-# Number of CPU cores
-
+#!/bin/sh
+#BSUB -q c02613
+#BSUB -J cuda_add
+#BSUB -n 4
 #BSUB -R "span[hosts=1]"
-# Keep resources on one node
+#BSUB -R "rusage[mem=1GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o cuda_add_%J.out
+#BSUB -e cuda_add_%J.err
 
-#BSUB -o simulate_time_%J.out
-#BSUB -e simulate_time_%J.err
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
 
-#BSUB -u cristianplacinta04@gmail.com
-#BSUB -B
-#BSUB -N
-
-# source ~/.bashrc
-# source .venv/bin/activate
-
-kernprof -l simulate.py
+python vector_addition.py

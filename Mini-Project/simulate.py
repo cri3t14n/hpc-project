@@ -3,6 +3,12 @@ import sys
 
 import numpy as np
 
+try:
+    profile
+except NameError:
+    def profile(func):
+        return func
+
 
 def load_data(load_dir, bid):
     SIZE = 512
