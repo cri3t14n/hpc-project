@@ -1,0 +1,70 @@
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.016701434535019, 6.367649262232614, 30.966330331633575, 55.47538967849264
+10009, 11.01028048638153, 5.80928699600336, 16.69765805608604, 74.93466680068349
+10014, 14.76009423643455, 7.028290843423581, 38.297265935139755, 52.74831538445879
+10019, 14.75219175313747, 7.020491283113654, 38.191880041912086, 52.886542354604735
+10029, 10.622508188742058, 6.312460561811111, 18.25563221896085, 74.51301795448481
+10031, 12.518720991183892, 6.276144595273962, 24.080075420557996, 66.33473764841057
+10051, 13.290568693587785, 5.999000745442376, 25.97693550756574, 62.84890553841633
+10053, 11.374403533368802, 6.258990338763394, 19.957686882933707, 72.38848730606487
+10056, 14.22156228947154, 6.1794045077543185, 31.770664359612127, 57.05454021123968
+10064, 12.729579225705642, 6.964127503403578, 28.854589132358804, 62.675186492768844
+
+elapsed_seconds,9.648295860271901
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28305640: <wallheat_cuda> in cluster <dcc> Done
+
+Job <wallheat_cuda> was submitted from host <hpclogin1> by user <s234615> in cluster <dcc> at Mon Apr 27 16:20:24 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s234615> in cluster <dcc> at Mon Apr 27 16:21:52 2026
+</zhome/aa/6/205647> was used as the home directory.
+</zhome/aa/6/205647/hpc-project/Mini-Project/Task_8> was used as the working directory.
+Started at Mon Apr 27 16:21:52 2026
+Terminated at Mon Apr 27 16:22:05 2026
+Results reported at Mon Apr 27 16:22:05 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J wallheat_cuda
+#BSUB -q c02613
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=4GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o /zhome/aa/6/205647/hpc-project/Mini-Project/outputs/cuda_%J.out
+#BSUB -e /zhome/aa/6/205647/hpc-project/Mini-Project/errors/cuda_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+/usr/bin/time -p python simulate_cuda.py 10
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   11.30 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     16384.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   13 sec.
+    Turnaround time :                            101 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/aa/6/205647/hpc-project/Mini-Project/errors/cuda_28305640.err> for stderr output of this job.
+

@@ -1,0 +1,62 @@
+No GPU on this node, CUDA module not loaded
+Visualizing simulation results for first 4 building(s): ['10000', '10009', '10014', '10019']
+Saved figure to: /zhome/aa/6/205647/hpc-project/Mini-Project/Task_3/10000_simulation.png
+Saved figure to: /zhome/aa/6/205647/hpc-project/Mini-Project/Task_3/10009_simulation.png
+Saved figure to: /zhome/aa/6/205647/hpc-project/Mini-Project/Task_3/10014_simulation.png
+Saved figure to: /zhome/aa/6/205647/hpc-project/Mini-Project/Task_3/10019_simulation.png
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28294093: <wallheat_vis> in cluster <dcc> Done
+
+Job <wallheat_vis> was submitted from host <hpclogin1> by user <s234615> in cluster <dcc> at Sun Apr 26 17:24:19 2026
+Job was executed on host(s) <n-62-31-21>, in queue <hpc>, as user <s234615> in cluster <dcc> at Sun Apr 26 17:24:19 2026
+</zhome/aa/6/205647> was used as the home directory.
+</zhome/aa/6/205647/hpc-project/Mini-Project/Task_3> was used as the working directory.
+Started at Sun Apr 26 17:24:19 2026
+Terminated at Sun Apr 26 17:25:26 2026
+Results reported at Sun Apr 26 17:25:26 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J wallheat_vis
+#BSUB -q hpc
+#BSUB -n 1
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=4096]"
+#BSUB -W 02:00
+#BSUB -o /zhome/aa/6/205647/hpc-project/Mini-Project/outputs/wallheat_vis_%J.out
+#BSUB -e /zhome/aa/6/205647/hpc-project/Mini-Project/errors/wallheat_vis_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python visualize_results.py 4
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   66.02 sec.
+    Max Memory :                                 98 MB
+    Average Memory :                             89.33 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               3998.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   67 sec.
+    Turnaround time :                            67 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/aa/6/205647/hpc-project/Mini-Project/errors/wallheat_vis_28294093.err> for stderr output of this job.
+

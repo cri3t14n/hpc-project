@@ -1,0 +1,75 @@
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.016628, 6.3676376, 30.966330331633575, 55.47538967849264
+10009, 11.010179, 5.8092756, 16.696401648406876, 74.93466680068349
+10014, 14.759925, 7.028277, 38.29523014596609, 52.749333279045615
+10019, 14.752019, 7.020478, 38.19086275826289, 52.886542354604735
+10029, 10.622465, 6.31246, 18.25563221896085, 74.51301795448481
+10031, 12.518621, 6.2761326, 24.080075420557996, 66.33473764841057
+10051, 13.2905445, 5.9989986, 25.97693550756574, 62.84890553841633
+10053, 11.374342, 6.258987, 19.957686882933707, 72.38848730606487
+10056, 14.221537, 6.179402, 31.770664359612127, 57.05454021123968
+10064, 12.729437, 6.9641013, 28.852643966582054, 62.676159075657225
+
+elapsed_seconds,2.3346780561842024
+Generating '/tmp/nsys-report-25cf.qdstrm'
+[1/1] [0%                          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [0%                          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [0%                          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [0%                          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [7%                          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [11%                         ] cupy_profile_fixed_28307382.nsys-rep[1/1] [=15%                        ] cupy_profile_fixed_28307382.nsys-rep[1/1] [==19%                       ] cupy_profile_fixed_28307382.nsys-rep[1/1] [===22%                      ] cupy_profile_fixed_28307382.nsys-rep[1/1] [====26%                     ] cupy_profile_fixed_28307382.nsys-rep[1/1] [=====30%                    ] cupy_profile_fixed_28307382.nsys-rep[1/1] [======34%                   ] cupy_profile_fixed_28307382.nsys-rep[1/1] [=======37%                  ] cupy_profile_fixed_28307382.nsys-rep[1/1] [========41%                 ] cupy_profile_fixed_28307382.nsys-rep[1/1] [=========45%                ] cupy_profile_fixed_28307382.nsys-rep[1/1] [==========49%               ] cupy_profile_fixed_28307382.nsys-rep[1/1] [===========52%              ] cupy_profile_fixed_28307382.nsys-rep[1/1] [============56%             ] cupy_profile_fixed_28307382.nsys-rep[1/1] [=============60%            ] cupy_profile_fixed_28307382.nsys-rep[1/1] [==============64%           ] cupy_profile_fixed_28307382.nsys-rep[1/1] [===============67%          ] cupy_profile_fixed_28307382.nsys-rep[1/1] [================71%         ] cupy_profile_fixed_28307382.nsys-rep[1/1] [==================75%       ] cupy_profile_fixed_28307382.nsys-rep[1/1] [========================100%] cupy_profile_fixed_28307382.nsys-rep[1/1] [========================100%] cupy_profile_fixed_28307382.nsys-rep
+Generated:
+    /zhome/aa/6/205647/hpc-project/Mini-Project/Task_10/cupy_profile_fixed_28307382.nsys-rep
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28307382: <cupy_nsys_fixed> in cluster <dcc> Done
+
+Job <cupy_nsys_fixed> was submitted from host <hpclogin1> by user <s234615> in cluster <dcc> at Mon Apr 27 18:08:01 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s234615> in cluster <dcc> at Mon Apr 27 18:08:02 2026
+</zhome/aa/6/205647> was used as the home directory.
+</zhome/aa/6/205647/hpc-project/Mini-Project/Task_10> was used as the working directory.
+Started at Mon Apr 27 18:08:02 2026
+Terminated at Mon Apr 27 18:08:18 2026
+Results reported at Mon Apr 27 18:08:18 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J cupy_nsys_fixed
+#BSUB -q c02613
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o /zhome/aa/6/205647/hpc-project/Mini-Project/outputs/cupy_nsys_fixed_%J.out
+#BSUB -e /zhome/aa/6/205647/hpc-project/Mini-Project/errors/cupy_nsys_fixed_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+nsys profile -o cupy_profile_fixed_${LSB_JOBID} python simulate_cupy_fixed.py 10
+nsys stats cupy_profile_fixed_${LSB_JOBID}.nsys-rep > cupy_profile_fixed_${LSB_JOBID}_stats.txt
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   11.00 sec.
+    Max Memory :                                 22 MB
+    Average Memory :                             22.00 MB
+    Total Requested Memory :                     32768.00 MB
+    Delta Memory :                               32746.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   16 sec.
+    Turnaround time :                            17 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/aa/6/205647/hpc-project/Mini-Project/errors/cupy_nsys_fixed_28307382.err> for stderr output of this job.
+

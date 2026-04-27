@@ -1,0 +1,57 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28307447: <wallheat_all> in cluster <dcc> Done
+
+Job <wallheat_all> was submitted from host <hpclogin1> by user <s234615> in cluster <dcc> at Mon Apr 27 18:33:40 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s234615> in cluster <dcc> at Mon Apr 27 18:33:42 2026
+</zhome/aa/6/205647> was used as the home directory.
+</zhome/aa/6/205647/hpc-project/Mini-Project/Task_12> was used as the working directory.
+Started at Mon Apr 27 18:33:42 2026
+Terminated at Mon Apr 27 18:45:16 2026
+Results reported at Mon Apr 27 18:45:16 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J wallheat_all
+#BSUB -q c02613
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=8GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o /zhome/aa/6/205647/hpc-project/Mini-Project/outputs/wallheat_all_%J.out
+#BSUB -e /zhome/aa/6/205647/hpc-project/Mini-Project/errors/wallheat_all_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python ../Task_10/simulate_cupy_fixed.py 4571 > all_floorplans_cupy_raw.csv
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   685.90 sec.
+    Max Memory :                                 78 MB
+    Average Memory :                             74.83 MB
+    Total Requested Memory :                     32768.00 MB
+    Delta Memory :                               32690.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                10
+    Run time :                                   694 sec.
+    Turnaround time :                            696 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/aa/6/205647/hpc-project/Mini-Project/errors/wallheat_all_28307447.err> for stderr output of this job.
+
