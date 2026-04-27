@@ -43,8 +43,8 @@ reports/figures/generated/*
 
 # Logs
 *.log
-*.out
-*.err
+# *.out
+# *.err
 
 # Numpy / arrays / model artifacts
 *.npy
@@ -65,3 +65,8 @@ slurm-*.out
 
 # CUDA / temporary
 *.ptx
+# Profiling outputs
+*.qdstrm
+*.qdrep
+*.nsys-rep
+*.sqlite
