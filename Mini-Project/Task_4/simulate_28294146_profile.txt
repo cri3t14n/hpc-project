@@ -1,0 +1,23 @@
+Timer unit: 1e-06 s
+
+Total time: 91.7374 s
+File: ../simulate.py
+Function: jacobi at line 20
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    20                                           @profile 
+    21                                           def jacobi(u, interior_mask, max_iter, atol=1e-6):
+    22        10       6477.7    647.8      0.0      u = np.copy(u)
+    23                                           
+    24     47282      34465.9      0.7      0.0      for i in range(max_iter):
+    25                                                   # Compute average of left, right, up and down neighbors, see eq. (1)
+    26     47282   49596091.8   1048.9     54.1          u_new = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
+    27     47282   10652952.6    225.3     11.6          u_new_interior = u_new[interior_mask]
+    28     47282   19288743.4    408.0     21.0          delta = np.abs(u[1:-1, 1:-1][interior_mask] - u_new_interior).max()
+    29     47282   12080006.6    255.5     13.2          u[1:-1, 1:-1][interior_mask] = u_new_interior
+    30                                           
+    31     47282      78654.4      1.7      0.1          if delta < atol:
+    32        10          9.2      0.9      0.0              break
+    33        10         25.0      2.5      0.0      return u
+
